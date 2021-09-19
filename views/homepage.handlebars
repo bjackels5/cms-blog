@@ -1,0 +1,11 @@
+<div class="card mt-3 mx-3">
+    <h3 class="card-header bg-info">The Tech Blog</h3>
+</div>
+
+<ul class="list-unstyled">
+    {{#each posts as |post|}}
+    <li>
+        {{> post-info post }}
+    </li>
+    {{/each}}
+</ul>
