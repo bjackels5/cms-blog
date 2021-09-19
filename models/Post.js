@@ -1,26 +1,26 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const Comment = require('./Comment.js');
+const Comment = require('./Comment.js');
 const User = require('./User.js');
 
 class Post extends Model {
 
     static postAttributes = [
         'id',
-        'post_url',
+        'post_text',
         'title', 
         'created_at'
     ];
 
     static postInclude = [
-        // { 
-        //     model: Comment,
-        //     attributes: Comment.commentAttributes,
-        //     include: {
-        //         model: User,
-        //         attributes: ['username']
-        //     }
-        // },
+        { 
+            model: Comment,
+            attributes: Comment.commentAttributes,
+            include: {
+                model: User,
+                attributes: ['username']
+            }
+        },
         {
             model: User,
             attributes: ['username']

@@ -1,6 +1,7 @@
 const router = require('express').Router();
-const { User, /* Post, Vote, Comment */} = require('../../models');
+const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+const { doDelete } = require('./api-utils.js');
 
 // GET /api/users
 router.get('/', (req, res) => {
@@ -19,26 +20,20 @@ router.get('/', (req, res) => {
 // GET /api/users/1
 router.get('/:id', (req, res) => {
     User.findOne({
-        // include: [
-        //     {
-        //         model: Post,
-        //         attributes: ['id', 'title', 'post_url', 'created_at']
-        //     },
-        //     {
-        //         model: Comment,
-        //         attributes: ['id', 'comment_text', 'created_at'],
-        //         include: {
-        //             model: Post,
-        //             attributes: ['title']
-        //         }
-        //     },
-        //     {
-        //         model: Post,
-        //         attributes: ['title'],
-        //         through: Vote,
-        //         as: 'voted_posts'
-        //     }
-        // ],
+        include: [
+            {
+                model: Post,
+                attributes: ['id', 'title', 'post_text', 'created_at']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'created_at'],
+                include: {
+                    model: Post,
+                    attributes: ['title']
+                }
+            },
+        ],
         attributes: { exclude: ['password'] },
         where: {
             id: req.params.id
@@ -59,8 +54,8 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
-//router.post('/', withAuth, (req, res) => {
-    console.log("route /api/users");
+    // don't check that the user is logged in (i.e. don't use withAuth) when we are creating the user for the first time
+
     // expected { username: 'thename', email: 'name@something.com', password: 'apassword' }
     User.create({
         attributes: { exclude: ['password'] }, 
@@ -146,22 +141,7 @@ router.put('/:id', (req, res) => {
 
 // DELETE /api/users/1
 router.delete('/:id', (req, res) => {
-    User.destroy({
-        where: {
-            id: req.params.id
-        }
-    })
-        .then(dbData => {
-            if (!dbData) {
-                res.status(404).json({ message: 'No user found with this id' });
-                return;
-            }
-            res.json(dbData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        })
+    doDelete(model, req.params.id, res);
 });
 
 module.exports = router;

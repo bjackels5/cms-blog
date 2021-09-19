@@ -37,7 +37,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * When the user chooses to sign up, they are prompted to create a username and password, which are saved and they are logged into the site.
 * When the user revisits the site at a later time and chooses to sign in, they are prompted to enter their username and password.
 * When the user is signed in to the site, they see navigation links for the homepage, dashboard, and the option to log out
-* When the user clicks the homeepage option in the navigation, they aretaken to the homepage and presented with existing blog posts that include the post title and the date created
+* When the user clicks the homeepage option in the navigation, they are taken to the homepage and presented with existing blog posts that include the post title and the date created
 * When the user clicks on an existing blog post, they are presented with the post title, contents, post creator’s username, and date created for that post. The user has the option to leave a comment
 * When the user enters a comment and click on the submit button while signed in, the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
 * When the user clicks on the dashboard option in the navigation,, they are taken to the dashboard and presented with any blog posts they have already created and the option to add a new blog post
