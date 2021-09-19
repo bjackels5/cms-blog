@@ -56,11 +56,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     // don't check that the user is logged in (i.e. don't use withAuth) when we are creating the user for the first time
 
-    // expected { username: 'thename', email: 'name@something.com', password: 'apassword' }
+    // expected { username: 'thename', password: 'apassword' }
     User.create({
         attributes: { exclude: ['password'] }, 
         username: req.body.username,
-        email: req.body.email,
         password: req.body.password
     })
         .then(dbData => {
@@ -78,20 +77,22 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+    console.log('========================================================================');
+    console.log('login route');
     User.findOne({
         where: {
-            email: req.body.email
+            username: req.body.username
         }
     }).then(dbData => {
         if (!dbData) {
-            res.status(400).json({ message: 'Either the email address or the password is incorrect' });
+            res.status(400).json({ message: 'Either the user name or the password is incorrect' });
             return;
         }
 
         // Verify password
         const validPassword = dbData.checkPassword(req.body.password);
         if (!validPassword) {
-            res.status(400).json({ message: 'Either the email address or the password is incorrect' });
+            res.status(400).json({ message: 'Either the user name or the password is incorrect' });
             return;
         }
 
@@ -117,7 +118,7 @@ router.post('/logout', (req, res) => {
 
 // PUT /api/users/1
 router.put('/:id', (req, res) => {
-    // expected { username: 'thename', email: 'name@something.com', password: 'apassword' }
+    // expected { username: 'thename', password: 'apassword' }
 
     // if req.body has exact key/value pairs to match the model, you can just use req.body instead
     User.update(req.body, {

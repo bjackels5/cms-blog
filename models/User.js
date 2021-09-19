@@ -26,17 +26,6 @@ User.init(
             allowNull: false
         },
 
-        // define an email column
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            // there cannot e any duplicate email values in this table
-            unique: true,
-            // if allowNull is set to false, we can run our data through validators before creating the table data
-            validate: {
-                isEmail: true
-            }
-        },
         // define a password column
         password: {
             type: DataTypes.STRING,
