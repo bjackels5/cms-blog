@@ -36,27 +36,27 @@ router.get('/new-post', (req, res) => {
 
 // /dashboard/edit/:id
 
-// router.get('/edit/:id', withAuth, (req, res) => {
-//     Post.findOne({
-//         where: {
-//             id: req.params.id
-//         },
-//         attributes: Post.postAttributes,
-//         include: Post.postInclude
-//     })
-//         .then(dbData => {
-//             if (!dbData) {
-//                 res.status(404).json({ message: 'No post found with this id' });
-//                 return;
-//             }
-//             const post = dbData.get({ plain: true });
-//             res.render('edit-post', { post, loggedIn: true });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json(err);
-//         });
+router.get('/edit/:id', withAuth, (req, res) => {
+    Post.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: Post.postAttributes,
+        include: Post.postInclude
+    })
+        .then(dbData => {
+            if (!dbData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            const post = dbData.get({ plain: true });
+            res.render('edit-post', { post, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 
-// });
+});
 
 module.exports = router;

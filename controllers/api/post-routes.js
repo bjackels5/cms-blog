@@ -54,9 +54,11 @@ router.post('/', withAuth, (req, res) => {
 
 // PUT /api/posts/id
 router.put('/:id', withAuth, (req, res) => {
+    console.log("/api/posts/id");
     Post.update(
         {
-            title: req.body.title
+            title: req.body.title,
+            post_text: req.body.post_text
         },
         {
             where: {
