@@ -25,8 +25,6 @@ async function signupFormHandler(event) {
 }
 
 async function loginFormHandler(event) {
-    console.log('======================================================================================');
-    console.log('loginFormHandler');
 
     event.preventDefault();
 
@@ -45,14 +43,21 @@ async function loginFormHandler(event) {
         
         // check the response status
         if (response.ok) {
-            document.location.replace('/'); 
+            // document.location.replace('/'); 
+            document.location.replace('/dashboard'); 
         } else {
             alert(response.statusText);
         }
     }
 }
 
-// document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
-document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
+const signupFormEl = document.querySelector('.signup-form');
+if (signupFormEl) {
+    signupFormEl.addEventListener('submit', signupFormHandler);
+}
 
-console.log("login.js");
+const loginFormEl = document.querySelector('.login-form');
+if (loginFormEl) {
+    loginFormEl.addEventListener('submit', loginFormHandler);
+}
+
