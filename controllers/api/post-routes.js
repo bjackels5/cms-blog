@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const {doDelete} = require('./api-utils');
 const withAuth = require('../../utils/auth');
 
 // get all posts:
@@ -54,7 +55,6 @@ router.post('/', withAuth, (req, res) => {
 
 // PUT /api/posts/id
 router.put('/:id', withAuth, (req, res) => {
-    console.log("/api/posts/id");
     Post.update(
         {
             title: req.body.title,
