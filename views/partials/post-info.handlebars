@@ -1,24 +1,8 @@
 <div class="card mt-3 mx-3">
     {{#if allow_edit}}
-    <a href="/post/{{id}}" class="btn btn-block bg-info font-weight-bold text-left">{{title}} <span class="float-right">Posted by {{user.username}} on {{ formatDate created_at }}</span></a>
+    {{> post-line1 bgcolor="bg-success"}}
     {{else}}
-    <a href="/post/{{id}}" class="btn btn-block bg-info font-weight-bold disabled text-left">{{title}} <span class="float-right">Posted by {{user.username}} on {{ formatDate created_at }}</span></a>
+    {{> post-line1 bgcolor="bg-info"}}
     {{/if}}
-    {{!-- <div class="card-body pt-1 mb-0 pb-0"> --}}
     <p class="card-text px-3 py-1">{{post_text}}</p>
-    {{!-- </div> --}}
 </div>
-
-{{!-- <div class="card mt-3 mx-3">
-    {{#if allow_edit}}
-    <div class="card-header bg-info py-1">
-        <a href="/post/{{id}}" class="btn btn-block bg-info font-weight-bold text-left">{{title}} <span class="float-right">Posted by {{user.username}} on {{ formatDate created_at }}</span></a>
-    {{else}}
-    <div class="card-header bg-info disabled py-1">
-        <a href="/post/{{id}}" class="btn btn-block bg-info font-weight-bold disabled text-left">{{title}} <span class="float-right">Posted by {{user.username}} on {{ formatDate created_at }}</span></a>
-    {{/if}}
-    </div>
-    <div class="card-body pt-1 mb-0 pb-0">
-        <p class="card-text">{{post_text}}</p>
-    </div>
-</div> --}}

@@ -10,10 +10,9 @@ router.get('/', (req, res) => {
         const posts = dbData.map(post => post.get({ plain: true}));
         posts.forEach(post => {
             let pUserId = post.user.id;
-            console.log(`post user id = ${pUserId}, sess user id = ${theSession.user_id}`);
             post.allow_edit = theSession.loggedIn && (theSession.user_id === pUserId);
         });
-        res.render('homepage', { posts, loggedIn: theSession.loggedIn });
+        res.render('homepage', { posts, loggedIn: theSession.loggedIn, username: theSession.username });
     })
     .catch(err => {
         console.log(err);
