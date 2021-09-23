@@ -8,6 +8,11 @@ router.get('/', (req, res) => {
     .then(dbData => {
         // pass a single post object into the homepage template
         const posts = dbData.map(post => post.get({ plain: true}));
+        posts.forEach(post => {
+            let pUserId = post.user.id;
+            console.log(`post user id = ${pUserId}, sess user id = ${theSession.user_id}`);
+            post.allow_edit = theSession.loggedIn && (theSession.user_id === pUserId);
+        });
         res.render('homepage', { posts, loggedIn: theSession.loggedIn });
     })
     .catch(err => {

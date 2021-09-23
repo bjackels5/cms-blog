@@ -23,7 +23,7 @@ class Post extends Model {
         },
         {
             model: User,
-            attributes: ['username']
+            attributes: ['username', 'id']
         }
     ];
 }
