@@ -13,20 +13,25 @@
 </head>
 
 <header>
-    <nav class="navbar navbar-dark bg-info m-1">
-        <ul class="nav">
-            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-            {{#if loggedIn}}
-            <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
-            <button type="button" class="btn bg-info font-weight-bold" id="logout">Logout</button>
-            {{else}}
-            <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-            {{/if}}
-        </ul>
+    <nav class="navbar navbar-expand-md navbar-dark bg-info m-1">
+        <a class="navbar-brand abs">
+            <h3>The Tech Blog</h3>
+        </a>
+        <div class="navbar-collapse">
+            <ul class="nav">
+                <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+                {{#if loggedIn}}
+                <li class="nav-item"><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <button type="button" class="btn bg-info font-weight-bold" id="logout">Logout</button>
+                {{else}}
+                <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+                {{/if}}
+            </ul>
+        </div>
         {{#if username}}
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item navbar-brand bg-success px-2">
-                {{username}}
+            <li class="nav-item navbar-brand badge bg-secondary px-2 pb-0">
+                <h4>{{username}}</h4>
             </li>
         </ul>
         {{/if}}

@@ -1,8 +1,8 @@
 <div class="card mt-3 mx-3">
     {{#if allow_edit}}
-    {{> post-line1 bgcolor="bg-success"}}
+    {{> post-line1 bgcolor="bg-secondary" textcolor="text-white"}}
     {{else}}
-    {{> post-line1 bgcolor="bg-info"}}
+    {{> post-line1 bgcolor="bg-info" textcolor=""}}
     {{/if}}
-    <p class="card-text px-3 py-1">{{post_text}}</p>
+    <p class="card-text px-5 py-1">{{post_text}}</p>
 </div>

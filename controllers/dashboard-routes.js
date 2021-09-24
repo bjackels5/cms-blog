@@ -16,7 +16,10 @@ router.get('/', withAuth, (req, res) => {
         .then(dbData => {
             //serialize the data before passing to template
             const posts = dbData.map(post => post.get({ plain: true }));
-            res.render('dashboard', { posts, loggedIn: true });
+            // res.render('dashboard', { posts, loggedIn: true });
+            res.render('dashboard', { posts, loggedIn: req.session.loggedIn, username: req.session.username });
+
+            
         })
         .catch(err => {
             console.log(err);
@@ -26,7 +29,9 @@ router.get('/', withAuth, (req, res) => {
 
 router.get('/new-post', (req, res) => {
     if (req.session.loggedIn) {
-        res.render('new-post', { loggedIn: true} );
+        // res.render('new-post', { loggedIn: true} );
+        res.render('new-post', { loggedIn: req.session.loggedIn, username: req.session.username });
+
         return;
     }
     else {
@@ -50,7 +55,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 return;
             }
             const post = dbData.get({ plain: true });
-            res.render('edit-post', { post, loggedIn: true });
+            // res.render('edit-post', { post, loggedIn: true });
+            res.render('edit-post', { post, loggedIn: req.session.loggedIn, username: req.session.username });
+
         })
         .catch(err => {
             console.log(err);
