@@ -13,7 +13,7 @@ https://quiet-earth-61890.herokuapp.com/ | https://git.heroku.com/quiet-earth-61
 
 * [What I Learned](#whatILearned)
 
-* [CMS Blog Screenshot](#webImage)
+* [CMS Blog Screenshots](#webImage)
 
 * [CMS Blog URL](#projectURL)
 
@@ -104,9 +104,10 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ---
 
 <a id="webImage"></a>
-## ProjectName Screenshot
+## CMS Blog Screenshots
 
-![ProjectName](./media/project-name.png)
+<img src="./media/techblog - not logged in.png" alt="Not Logged In" width="500">
+<!-- ![Before Logging In](./media/project-name.png) -->
 
 ---
 
