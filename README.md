@@ -1,6 +1,9 @@
 # CMS Blog
 This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blog.
 
+https://obscure-fjord-71624.herokuapp.com/
+https://git.heroku.com/obscure-fjord-71624.git
+
 * [User Story](#userStory)
 
 * [Requirements](#requirements)
