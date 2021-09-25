@@ -5,7 +5,7 @@ This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blo
 
 * [Requirements](#requirements)
 
-* [Requirements I changed](#changedRequirements)
+* [Additional Functionality](#additionalFunctionality)
 
 * [Technologies Used](#techUsed)
 
@@ -61,8 +61,8 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
 ---
 
-<a id="changedRequirements"></a>
-## Requirements I Changed
+<a id="additionalFunctionality"></a>
+## Additioal Functionality
 
 * I added the user's name to the title bar if they are logged in.
 * The dashboard, log in, and log out buttons each appear as appropriate. That is, if a user is logged in, they will see the dashboard and log out buttons. If a user is not logged in, they will only see the log in button.
@@ -70,6 +70,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * The requirements do not indicate a way to see all the comments left on a given post. The requirements state that when a user clicks on a post on the homepage, they are taken to a page where they can leave a comment (if they are logged in). I've changed that comment page to show all comments, and to allow the user to leave a comment if they are logged in.
 * While on the comments page, any comments left by the logged in user are displayed in the color that matches the user's name in the title bar.
 * I added a "confirm password" field to the signup form.
+* The dashboard includes all comments left by a user. Clicking on a comment in the dashboard takes the user to the corresponding post where they can see all the comments as well as add another comment.
 ---
 
 <a id="techUsed"></a>
