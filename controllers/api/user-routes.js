@@ -67,18 +67,24 @@ router.post('/', (req, res) => {
                 req.session.user_id = dbData.id;
                 req.session.username = dbData.username;
                 req.session.loggedIn = true;
-                res.json(dbData);
+                res.json({ user: dbData, message: 'You are now logged in!' });
             });
         })
         .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+            //This will send different alerts for the user when signup fails
+              if(err.errors[0].validatorKey === 'len'){
+                  res.status(500).send({ message: "Password needs to be at least 4 characters long."})
+              }
+              else if(err.errors[0].validatorKey === 'not_unique'){
+                  res.status(500).send({ message: `An account with user name ${err.errors[0].value} already exists`})
+              }
+              else{
+                  res.status(500).send({ message: 'Failed to Signup'});
+              }
+          });
 });
 
 router.post('/login', (req, res) => {
-    console.log('========================================================================');
-    console.log('login route');
     User.findOne({
         where: {
             username: req.body.username
@@ -101,8 +107,10 @@ router.post('/login', (req, res) => {
             req.session.username = dbData.username;
             req.session.loggedIn = true;
             res.json({ user: dbData, message: 'You are now logged in!' });
-            console.log("you are now logged in!");
         });
+    })
+    .catch(err => {
+        res.status(500).json(err);
     });
 });
 

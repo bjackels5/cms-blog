@@ -23,7 +23,11 @@ async function updatePostFormHandler(event) {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert(response.statusText);
+        response.json()
+        .then(data => {
+            alert(data.message);
+        })
+
     }
 }
 
@@ -44,10 +48,13 @@ async function deletePostFormHandler(event) {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert(response.statusText);
+        response.json()
+        .then(data => {
+            alert(data.message);
+        })
+
     }
 }
-
 
 document.querySelector('.edit-post-form').addEventListener('submit', updatePostFormHandler);
 document.querySelector('#deleteBtn').addEventListener('click', deletePostFormHandler);
