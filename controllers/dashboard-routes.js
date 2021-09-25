@@ -16,10 +16,18 @@ router.get('/', withAuth, (req, res) => {
         .then(dbData => {
             //serialize the data before passing to template
             const posts = dbData.map(post => post.get({ plain: true }));
-            // res.render('dashboard', { posts, loggedIn: true });
-            res.render('dashboard', { posts, loggedIn: req.session.loggedIn, username: req.session.username });
-
-            
+            Comment.findAll({
+                where: {
+                    // use the ID from the session
+                    user_id: req.session.user_id
+                },
+                attributes: Comment.commentAttributes,
+                include: Comment.commentInclude
+            })
+            .then(dbData => {
+            const comments = dbData.map(comment => comment.get({ plain: true }));
+                res.render('dashboard', { posts, comments, loggedIn: req.session.loggedIn, username: req.session.username });
+            })
         })
         .catch(err => {
             console.log(err);
