@@ -6,6 +6,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
     "express-session": "^1.17.2",
+    "heroku": "^7.59.0",
     "mysql2": "^2.3.0",
     "seed": "^0.4.4",
     "sequelize": "^6.6.5"
@@ -19,7 +20,6 @@
   "description": "This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blog.",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bjackels5/cms-blog.git"
