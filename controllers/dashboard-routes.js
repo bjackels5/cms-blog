@@ -22,7 +22,7 @@ router.get('/', withAuth, (req, res) => {
                     user_id: req.session.user_id
                 },
                 attributes: Comment.commentAttributes,
-                include: Comment.commentInclude
+                include: Comment.commentIncludeUser
             })
             .then(dbData => {
             const comments = dbData.map(comment => comment.get({ plain: true }));

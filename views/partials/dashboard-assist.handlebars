@@ -34,17 +34,6 @@
         <a href="/dashboard/edit/{{post.id}}" class="btn btn-secondary btn-block text-left">{{title}} <span class="float-right">{{ formatDate created_at }}</span></a>
     {{/each}}
 </div>
-{{!-- Display all the comments (not editable) created by the logged in user --}}
-<div class="card mt-3 mx-3">
-    <h4 class="card-header bg-info text-left px-2 py-0 border-bottom-0">Your Comments</h4>
-</div>
-<div class="row m-3">
-    {{#each comments as |comment|}}
-        <a class="btn btn-secondary disabled text-white btn-block text-left">{{comment_text}} <span class="float-right">{{ formatDate created_at }}</span></a>
-    {{/each}}
-</div>
-{{/if}}
-
 {{#if editPost}}
 {{!-- do nothing --}}
 {{else}}
@@ -52,6 +41,21 @@
     <a href="/dashboard/new-post" class="btn btn-info">+ New Post</a>
 </div>
 {{/if}}
+
+{{!-- Display all the comments created by the logged in user --}}
+<div class="card mt-3 mx-3">
+    <h4 class="card-header bg-info text-left px-2 py-0 border-bottom-0">Your Comments</h4>
+</div>
+<div class="row m-3">
+    {{#each comments as |comment|}}
+
+        <a href="/post/{{post_id}}" class=" btn btn-block btn-secondary text-left">{{comment_text}}<span class="float-right">{{ formatDate created_at }}</span></a>
+
+        {{!-- <a class="btn btn-secondary disabled text-white btn-block text-left">{{comment_text}} {{ post.title}} <span class="float-right">{{ formatDate created_at }}</span></a> --}}
+    {{/each}}
+</div>
+{{/if}}
+
 
 {{#if editPost}}
 <script src="/javascript/update-post.js"></script>
