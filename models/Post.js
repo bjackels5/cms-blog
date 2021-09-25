@@ -19,7 +19,8 @@ class Post extends Model {
             include: {
                 model: User,
                 attributes: ['username']
-            }
+            },
+            order: [['created_at', 'DESC']]
         },
         {
             model: User,

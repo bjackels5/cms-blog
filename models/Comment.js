@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./User.js');
+
 
 class Comment extends Model {
     static commentAttributes = [
@@ -9,6 +11,14 @@ class Comment extends Model {
         'user_id', 
         'created_at'
     ];
+
+    static commentInclude = [
+        {
+            model: User,
+            attributes: ['username', 'id']
+        }
+    ];
+
 }
 
 Comment.init(

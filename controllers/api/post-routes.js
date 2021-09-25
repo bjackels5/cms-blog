@@ -1,14 +1,14 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
-const {doDelete} = require('./api-utils');
+const { doDelete } = require('./api-utils');
 const withAuth = require('../../utils/auth');
 
 // get all posts:
 router.get('/', (req, res) => {
-    console.log('=====================');
     Post.findAll({
         attributes: Post.postAttributes,
         order: [['created_at', 'DESC']],
+        //        order: [['created_at', 'DESC'], [{ model: comment}, 'created_at', 'DESC']],
         include: Post.postInclude
     })
         .then(dbData => res.json(dbData))
@@ -24,7 +24,9 @@ router.get('/:id', (req, res) => {
             id: req.params.id
         },
         attributes: Post.postAttributes,
-        include: Post.postInclude
+        include: Post.postInclude,
+        order: [[{model: Comment}, 'created_at', 'DESC']],
+
     })
         .then(dbData => {
             if (!dbData) {
