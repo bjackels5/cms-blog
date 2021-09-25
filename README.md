@@ -1,6 +1,8 @@
 # CMS Blog
 This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blog.
 
+https://quiet-earth-61890.herokuapp.com/ | https://git.heroku.com/quiet-earth-61890.git
+
 * [User Story](#userStory)
 
 * [Requirements](#requirements)
@@ -71,6 +73,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 * While on the comments page, any comments left by the logged in user are displayed in the color that matches the user's name in the title bar.
 * I added a "confirm password" field to the signup form.
 * The dashboard includes all comments left by a user. Clicking on a comment in the dashboard takes the user to the corresponding post where they can see all the comments as well as add another comment.
+
 ---
 
 <a id="techUsed"></a>

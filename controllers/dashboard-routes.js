@@ -11,7 +11,9 @@ router.get('/', withAuth, (req, res) => {
             user_id: req.session.user_id
         },
         attributes: Post.postAttributes,
-        include: Post.postInclude
+        include: Post.postInclude,
+        order: [['created_at', 'DESC']]
+
     })
         .then(dbData => {
             //serialize the data before passing to template
@@ -22,10 +24,12 @@ router.get('/', withAuth, (req, res) => {
                     user_id: req.session.user_id
                 },
                 attributes: Comment.commentAttributes,
-                include: Comment.commentIncludeUser
+                include: Comment.commentIncludeUser,
+                order: [['created_at', 'DESC']]
+
             })
             .then(dbData => {
-            const comments = dbData.map(comment => comment.get({ plain: true }));
+                const comments = dbData.map(comment => comment.get({ plain: true }));
                 res.render('dashboard', { posts, comments, loggedIn: req.session.loggedIn, username: req.session.username });
             })
         })
