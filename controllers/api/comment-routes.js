@@ -31,7 +31,7 @@ router.post('/', withAuth, (req, res) => {
     }
 });
 
-// //api/comments/1
+// /api/comments/1
 router.delete('/:id', withAuth, (req, res) => {
     doDelete(Comment, req.params.id, res);
 });

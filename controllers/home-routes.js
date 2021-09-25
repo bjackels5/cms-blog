@@ -63,7 +63,6 @@ router.get('/post/:id', (req, res) => {
 
 
         // pass the data to the template
-        // res.render('single-post', { post, loggedIn: req.session.loggedIn });
         res.render('single-post', { post, loggedIn: req.session.loggedIn, username: req.session.username });
 
     })

@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
     Post.findAll({
         attributes: Post.postAttributes,
         order: [['created_at', 'DESC']],
-        //        order: [['created_at', 'DESC'], [{ model: comment}, 'created_at', 'DESC']],
         include: Post.postInclude
     })
         .then(dbData => res.json(dbData))
