@@ -1,8 +1,6 @@
 # CMS Blog
 This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blog.
 
-https://quiet-earth-61890.herokuapp.com/ | https://git.heroku.com/quiet-earth-61890.git
-
 * [User Story](#userStory)
 
 * [Requirements](#requirements)
@@ -16,6 +14,8 @@ https://quiet-earth-61890.herokuapp.com/ | https://git.heroku.com/quiet-earth-61
 * [CMS Blog Screenshots](#webImage)
 
 * [CMS Blog URL](#projectURL)
+
+* [CMS Blog Heroku Repo](#projectHerokuRepo)
 
 * [Contact Me](#contactMe)
 
@@ -64,7 +64,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ---
 
 <a id="additionalFunctionality"></a>
-## Additioal Functionality
+## Additional Functionality
 
 * I added the user's name to the title bar if they are logged in.
 * The dashboard, log in, and log out buttons each appear as appropriate. That is, if a user is logged in, they will see the dashboard and log out buttons. If a user is not logged in, they will only see the log in button.
@@ -107,13 +107,29 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ## CMS Blog Screenshots
 
 <img src="./media/techblog - not logged in.png" alt="Not Logged In" width="500">
-<!-- ![Before Logging In](./media/project-name.png) -->
+
+#### Before Logging In
+
+<img src="./media/techblog - logged in - blog.png" alt="Logged In - Blog" width="500">
+
+#### Logged In, showing all posts. The posts created by the logged in user are a different color
+
+<img src="./media/techblog - logged in - dashboard.png" alt="Logged In - Dashboard" width="500">
+
+#### Logged In, user dashboard. All the posts and comments created by the user can be seen.
+
 
 ---
 
 <a id="projectURL"></a>
-## ProjectName URL
-[ProjectName URL](https://bjackels5.github.io/ProjectName/)
+## CMS Blog URL
+[CMS Blog URL](https://quiet-earth-61890.herokuapp.com)
+
+---
+
+<a id="projectHerokuRepo"></a>
+## CMS Blog Heroku Repo
+[CMS Blog Heroku Repo](https://git.heroku.com/quiet-earth-61890.git)
 
 ---
 
