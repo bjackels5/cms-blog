@@ -15,7 +15,7 @@ This challenge for Module 14 of the Coding Bootcamp is to create a CMS-style blo
 
 * [CMS Blog URL](#projectURL)
 
-* [CMS Blog Heroku Repo](#projectHerokuRepo)
+* [CMS Blog Repo](#projectHerokuRepo)
 
 * [Contact Me](#contactMe)
 
@@ -122,14 +122,15 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ---
 
 <a id="projectURL"></a>
-## CMS Blog URL
+## CMS Blog Heroku URL
 [CMS Blog URL](https://quiet-earth-61890.herokuapp.com)
 
 ---
 
 <a id="projectHerokuRepo"></a>
-## CMS Blog Heroku Repo
-[CMS Blog Heroku Repo](https://git.heroku.com/quiet-earth-61890.git)
+## CMS Blog Repo
+This the Heroku Git repository, not the app! Please click the link above for the app.
+[CMS Blog Repo](https://git.heroku.com/quiet-earth-61890.git)
 
 ---
 
